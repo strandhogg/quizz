@@ -1,3 +1,19 @@
+<template>
+  <form>
+    <div v-if="questionIndex < questions.length">
+      <label> {{ questions.question }}</label>
+      <div v-for="answer of questions.answers" :key="answer">
+      <input type="radio" name="answer" v-model="chosenAnswer" :value="answer"/>
+        {{ answer }}
+      </div>
+      <div>
+        <button type="button" @click="getNextQuestion">next</button>
+      </div>
+    </div>
+  </form>
+</template>
+
+
 <script setup>
   import questions from "./questions.json";
   export default {
@@ -27,21 +43,6 @@
     },
   };
 </script>
-
-<template>
-  <form>
-    <div v-if="questionIndex < questions.length">
-      <label> {{ questions.question }}</label>
-      <div v-for="answer of questions.answers" :key="answer">
-      <input type="radio" name="answer" v-model="chosenAnswer" :value="answer"/>
-        {{ answer }}
-      </div>
-      <div>
-        <button type="button" @click="getNextQuestion">next</button>
-      </div>
-    </div>
-  </form>
-</template>
 
 <style>
 
