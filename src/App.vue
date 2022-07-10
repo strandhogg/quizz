@@ -68,9 +68,9 @@
 
       getNextQuestion() {
           const {chosenAnswer, question, questions, questionIndex} = this;
-          if(chosenAnswer == question.answer) {
+          if(question.answer == true) {
             score++;
-
+            JSON.stringify({questionIndex: chosenAnswer})
           }
 
           if (questionIndex < questions.length) {
