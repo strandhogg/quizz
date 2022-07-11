@@ -42,7 +42,7 @@
 
 
 <script>
-  import questions from "./questions.json";
+  import questions from "./data/questions.json";
   
   export default {
     name: "App",
