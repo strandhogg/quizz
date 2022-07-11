@@ -99,7 +99,7 @@
   }
 
   body {
-    background-color: rgb(86, 18, 149);
+    background-color: rgb(130, 212, 235);
     color: aliceblue;
   }
 </style>
