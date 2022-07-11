@@ -41,8 +41,8 @@
 </template>
 
 
-<script setup>
-  import questions from "./questions.json";
+<script>
+  import questions from "./data/questions.json";
   
   export default {
     name: "App",
