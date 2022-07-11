@@ -34,7 +34,7 @@
         {{ answer }}
       </div>
       <div>
-        <button type="button" @click="getNextQuestion">next</button>
+        <button type="button" id="answer-btn" @click="getNextQuestion">next</button>
       </div>
     </div>
   </form>
@@ -100,6 +100,16 @@
 
   body {
     background-color: rgb(130, 212, 235);
+    height:100vh;
     color: aliceblue;
   }
+
+  #answer-btn{
+    border-color: #c23c3e;
+    background-color: #2e0d6b;
+  }
+
+  #answer-btn:hover, #answer-btn:focus{
+    box-shadow: inset 0 0 0 2em #c23c3e;
+}
 </style>
