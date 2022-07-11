@@ -41,7 +41,7 @@
 </template>
 
 
-<script setup>
+<script>
   import questions from "./questions.json";
   
   export default {
