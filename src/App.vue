@@ -99,8 +99,8 @@
         document.getElementById("quizScreen").vShow = 'false';
         document.getElementById("endScreen").vShow = 'true';
       },
-      getUsername(){
-
+      getReview(){
+        JSON.stringify({review: review})
       }
     },
     computed: {
