@@ -1,7 +1,7 @@
 <template>
   <form>
     <!-- Startbildschirm -->
-    <div id="startScreen" class="startScreen text-white text-center py-5 px-5" v-show="true">
+    <div id="startScreen" class="startScreen text-white text-center py-5 px-5" v-if="value1">
 		<h1 class="text">Welcome to Cyber Range Quiz!</h1> 
 		<div class="my-3">
 			<div class="input-group my-3">
@@ -14,7 +14,7 @@
 	</div>
 
   <!-- Quiz -->
-	<div id="quizScreen" class="text-white text-center py-5 px-5" v-show="false">
+	<div id="quizScreen" class="text-white text-center py-5 px-5" v-if="value2">
 		<h1>CyberRange Quiz</h1>
 		<hr/>
 		<div class="panel my-3" id="p1">
@@ -22,7 +22,7 @@
 	</div>
 
   <!-- Endbildschirm -->
-	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-show="false">
+	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-if="value3">
 		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
     <div class="text-center">{{ finalScore }}</div>
     <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
@@ -47,7 +47,7 @@
 
 
 <script>
-  import questions from "./data/questions.json";
+  import questions from "./data/questions.js";
   
   export default {
     name: "App",
@@ -63,15 +63,19 @@
         question: questions[0],
         chosenAnswer: "",
         score: 0,
-        review: "Wenn du noch was los werden willst, ist hier die Möglichkeit!"
+        review: "Wenn du noch was los werden willst, ist hier die Möglichkeit!",
+        value1: true,
+        value2: false,
+        value3: false,
+
       };
     },
     methods: {
 
       startGame(){
-        //lieber mit v-if lösen
-        document.getElementById("startScreen").vShow = 'false';
-        document.getElementById("quizScreen").vShow = 'true';
+        this.value1 = false
+        this.value2 = true
+
       },
 
       getUsername(){
@@ -96,8 +100,8 @@
       },
 
       endGame(){
-        document.getElementById("quizScreen").vShow = 'false';
-        document.getElementById("endScreen").vShow = 'true';
+        this.value2 = false
+        this.value3 = true
       },
       getUsername(){
 
