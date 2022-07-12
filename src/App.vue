@@ -5,7 +5,7 @@
 		<h1 class="text">Welcome to Cyber Range Quiz!</h1> 
 		<div class="my-3">
 			<div class="input-group my-3">
-				<span class="input-group-text" id="basic-addon1">Username</span>
+				<span class="input-group-text" id="basic-addon1" @click="getUsername">{{ Username }}</span>
 				<input aria-label="Username" aria-describedby="basic-addon1" class="form-control" id="username" name="username" required type="text" placeholder="Gib hier deinen Username ein!" />
 			</div>
 			<button @click="startGame()" class="btn btn-light my-3 w-100 raise" id="start-btn ">Click here to start the Quiz!</button>
@@ -24,6 +24,7 @@
   <!-- Endbildschirm -->
 	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-show="false">
 		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
+    <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
 	</div>
 
 
@@ -35,6 +36,9 @@
       </div>
       <div>
         <button type="button" @click="getNextQuestion">next</button>
+      </div>
+      <div class="text-center">
+        {{ currentQuestion }}
       </div>
     </div>
   </form>
@@ -52,24 +56,33 @@
 
     data() {
       return {
+        username: "Username",
         questions,
         questionIndex: 0,
         question: questions[0],
         chosenAnswer: "",
-        score: 0
+        score: 0,
+        review: "Wenn du noch was los werden willst, ist hier die Möglichkeit!"
       };
     },
     methods: {
 
       startGame(){
+        //lieber mit v-if lösen
         document.getElementById("startScreen").vShow = 'false';
         document.getElementById("quizScreen").vShow = 'true';
+      },
+
+      getUsername(){
+        JSON.stringify({name: username})
       },
 
       getNextQuestion() {
           const {chosenAnswer, question, questions, questionIndex} = this;
           if(question.answer == true) {
             score++;
+            JSON.stringify({questionIndex: chosenAnswer})
+          } else {
             JSON.stringify({questionIndex: chosenAnswer})
           }
 
@@ -85,6 +98,15 @@
         document.getElementById("quizScreen").vShow = 'false';
         document.getElementById("endScreen").vShow = 'true';
       },
+      getUsername(){
+
+      }
+    },
+    computed: {
+      //displaying current question x/n
+      currentQuestion() {
+        return this.questionIndex + '/' + this.questions.length
+      }
     }
   };
 
