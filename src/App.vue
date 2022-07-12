@@ -24,6 +24,7 @@
   <!-- Endbildschirm -->
 	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-show="false">
 		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
+    <div class="text-center">{{ finalScore }}</div>
     <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
 	</div>
 
@@ -106,6 +107,9 @@
       //displaying current question x/n
       currentQuestion() {
         return this.questionIndex + '/' + this.questions.length
+      },
+      finalScore() {
+        return 'You scored ' + this.score + ' out of ' + this.questions.length + ' points!'
       }
     }
   };
