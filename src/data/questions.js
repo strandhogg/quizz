@@ -1,4 +1,4 @@
-const questionsArr = 
+const questionsArray = 
 
 {
     "quizQuestions": [
@@ -30,4 +30,4 @@ const questionsArr =
     ]
 }
 
-export default questionsArr;
+export default questionsArray;

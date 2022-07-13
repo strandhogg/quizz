@@ -20,7 +20,7 @@
 		<div class="panel my-3" id="p1"></div>
 
     <!--<div v-if="questionIndex < questions.length">-->
-      <label> {{ questions }}</label>
+      <label> {{ question }}</label>
       <div v-for="answer of questions.answers" :key="answer">
       <input type="radio" name="answer" v-model="chosenAnswer" :value="answer"/>
         {{ answer }}
@@ -46,6 +46,7 @@
 
 <script>
   import questions from "./data/questions.js";
+  import input from "./data/input.js"
   
   export default {
     name: "App",
@@ -58,12 +59,12 @@
         username: "Username",
         questions,
         questionIndex: 0,
-        question: questions[0],
+        question: questions.questions[0],
         chosenAnswer: "",
         score: 0,
         review: "Wenn du noch was los werden willst, ist hier die Möglichkeit!",
-        value1: false,
-        value2: true,
+        value1: true,
+        value2: false,
         value3: false,
 
       };
@@ -78,17 +79,16 @@
       },
 
       getUsername(){
-        JSON.stringify({name: username})
+        input.push[{user: this.username}]
       },
 
       getNextQuestion() {
           const {chosenAnswer, question, questions, questionIndex} = this;
           if(question.answer == true) {
             score++;
-            JSON.stringify({questionIndex: chosenAnswer})
-          } else {
-            JSON.stringify({questionIndex: chosenAnswer})
           }
+
+          input.push[{questionIndex: this.chosenAnswer}]
 
           if (questionIndex < questions.length) {
             this.questionIndex++;
@@ -128,7 +128,7 @@
   }
 
   body {
-    background-color: rgb(130, 212, 235);
+    background-color: rgb(77, 200, 231);
     height:100vh;
     color: aliceblue;
   }
