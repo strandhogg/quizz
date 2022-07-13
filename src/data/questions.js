@@ -1,7 +1,7 @@
-const questions = 
+const questionsArr = 
 
 {
-    "questions": [
+    "quizQuestions": [
         {
             "question": "What is icecream?",
             "answers": [
@@ -30,4 +30,4 @@ const questions =
     ]
 }
 
-export default questions;
+export default questionsArr;

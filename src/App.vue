@@ -20,7 +20,7 @@
 		<div class="panel my-3" id="p1"></div>
 
     <!--<div v-if="questionIndex < questions.length">-->
-      <label> {{ questions.question }}</label>
+      <label> {{ questions }}</label>
       <div v-for="answer of questions.answers" :key="answer">
       <input type="radio" name="answer" v-model="chosenAnswer" :value="answer"/>
         {{ answer }}
@@ -62,8 +62,8 @@
         chosenAnswer: "",
         score: 0,
         review: "Wenn du noch was los werden willst, ist hier die Möglichkeit!",
-        value1: true,
-        value2: false,
+        value1: false,
+        value2: true,
         value3: false,
 
       };
@@ -82,8 +82,6 @@
       },
 
       getNextQuestion() {
-
-        
           const {chosenAnswer, question, questions, questionIndex} = this;
           if(question.answer == true) {
             score++;
