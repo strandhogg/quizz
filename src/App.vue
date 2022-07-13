@@ -8,7 +8,7 @@
 				<span class="input-group-text" id="basic-addon1" @click="getUsername">{{ Username }}</span>
 				<input aria-label="Username" aria-describedby="basic-addon1" class="form-control" id="username" name="username" required type="text" placeholder="Gib hier deinen Username ein!" />
 			</div>
-			<button @click="startGame()" class="btn btn-light my-3 w-100 raise" id="start-btn ">Click here to start the Quiz!</button>
+			<button @click="startGame()" class="button is-primary" type="submit" id="start-btn ">Click here to start the Quiz!</button>
 		</div>
 		
 	</div>
@@ -19,11 +19,11 @@
 		<hr/>
 		<div class="panel my-3" id="p1"></div>
 
-    <!--<div v-if="questionIndex < questions.length">-->
-      <label> {{ question }}</label>
-      <div v-for="answer of questions.answers" :key="answer">
-      <input type="radio" name="answer" v-model="chosenAnswer" :value="answer"/>
-        {{ answer }}
+    <div v-if="questionIndex < questions.length">
+      <label> {{ question.question }}</label>
+      <div v-for="a of questions.answers" :key="a">
+      <input type="button" name="answer" v-model="chosenAnswer"/>
+        {{ a }}
       </div>
       <div>
         <button type="button" id="answer-btn" @click="getNextQuestion">next</button>
@@ -32,7 +32,8 @@
         {{ currentQuestion }}
       </div>
     </div>
-    <!--</div>-->
+
+  </div>
 
     <!-- Endbildschirm -->
 	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-if="value3">
@@ -88,7 +89,7 @@
             score++;
           }
 
-          input.push[{questionIndex: this.chosenAnswer}]
+          input.answeredQuestions.push[{questionIndex: this.chosenAnswer}]
 
           if (questionIndex < questions.length) {
             this.questionIndex++;
@@ -128,7 +129,7 @@
   }
 
   body {
-    background-color: rgb(130, 212, 235);
+    background-color: rgb(103, 189, 212);
     height:100vh;
     color: aliceblue;
   }
