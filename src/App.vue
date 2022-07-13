@@ -17,19 +17,9 @@
 	<div id="quizScreen" class="text-white text-center py-5 px-5" v-if="value2">
 		<h1>CyberRange Quiz</h1>
 		<hr/>
-		<div class="panel my-3" id="p1">
-		</div>
-	</div>
+		<div class="panel my-3" id="p1"></div>
 
-  <!-- Endbildschirm -->
-	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-if="value3">
-		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
-    <div class="text-center">{{ finalScore }}</div>
-    <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
-	</div>
-
-
-    <div v-if="questionIndex < questions.length">
+    <!--<div v-if="questionIndex < questions.length">-->
       <label> {{ questions.question }}</label>
       <div v-for="answer of questions.answers" :key="answer">
       <input type="radio" name="answer" v-model="chosenAnswer" :value="answer"/>
@@ -42,6 +32,14 @@
         {{ currentQuestion }}
       </div>
     </div>
+    <!--</div>-->
+
+    <!-- Endbildschirm -->
+	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-if="value3">
+		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
+    <div class="text-center">{{ finalScore }}</div>
+    <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
+	</div>
   </form>
 </template>
 
@@ -75,6 +73,7 @@
       startGame(){
         this.value1 = false
         this.value2 = true
+        console.log("Started")
 
       },
 
@@ -83,6 +82,8 @@
       },
 
       getNextQuestion() {
+
+        
           const {chosenAnswer, question, questions, questionIndex} = this;
           if(question.answer == true) {
             score++;
@@ -110,7 +111,7 @@
     computed: {
       //displaying current question x/n
       currentQuestion() {
-        return this.questionIndex + '/' + this.questions.length
+        return 'Question ' + this.questionIndex + ' of ' + this.questions.length
       },
       finalScore() {
         return 'You scored ' + this.score + ' out of ' + this.questions.length + ' points!'
@@ -136,7 +137,7 @@
 
   #answer-btn{
     border-color: #c23c3e;
-    background-color: #2e0d6b;
+    background-color: #dcd6e9;
   }
 
   #answer-btn:hover, #answer-btn:focus{
