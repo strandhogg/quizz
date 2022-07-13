@@ -1,4 +1,4 @@
-const questions = 
+const questionsArray = 
 
 {
     "questions": [
@@ -30,4 +30,4 @@ const questions =
     ]
 }
 
-export default questions;
+export default questionsArray;
