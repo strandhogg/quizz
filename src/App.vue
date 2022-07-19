@@ -110,9 +110,9 @@
             score++;
           }
 
-          input.answeredQuestions.push[{questionIndex: this.chosenAnswer}]
+          //input.answeredQuestions.push[{questionIndex: this.chosenAnswer}]
 
-          if (questionIndex < questions.length) {
+          if (questionIndex < questions.length-1) {
             this.questionIndex++;
             this.question = { ...questions[this.questionIndex]};
           } else {
@@ -142,5 +142,5 @@
 </script>
 
 <style>
-  
+
 </style>
