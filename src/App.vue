@@ -1,41 +1,48 @@
 <template>
   <form>
     <!-- Startbildschirm -->
-    <div id="startScreen" class="startScreen text-white text-center py-5 px-5" v-if="value1">
-		<h1 class="text">Welcome to Cyber Range Quiz!</h1> 
+    <div id="startScreen" class="startScreen" v-if="value1">
+		<h1 class="text title is-1" >Welcome to Cyber Range Quiz!</h1> 
 		<div class="my-3">
 			<div class="input-group my-3">
-				<span class="input-group-text" id="basic-addon1" @click="getUsername">{{ Username }}</span>
-				<input aria-label="Username" aria-describedby="basic-addon1" class="form-control" id="username" name="username" required type="text" placeholder="Gib hier deinen Username ein!" />
+				<span class="input-group-text" id="basic-addon1" ></span>
+				<input aria-label="Username" 
+        aria-describedby="basic-addon1" 
+        class="form-control input is-primary is-medium is-rounded" 
+        id="username" 
+        name="username" 
+        required type="text" 
+        placeholder="Gib hier deinen Username ein!" 
+        @click="getUsername"/>
+        {{ Username }}
 			</div>
-			<button @click="startGame()" class="btn btn-light my-3 w-100 raise" id="start-btn ">Click here to start the Quiz!</button>
+			<button @click="startGame()" class="button is-primary is-rounded" type="submit" id="start-btn">Click here to start the Quiz!</button>
 		</div>
 		
 	</div>
 
-  <!-- Quiz -->
-	<div id="quizScreen" class="text-white text-center py-5 px-5" v-if="value2">
-		<h1>CyberRange Quiz</h1>
+  <!-- Quiz Änderung-->
+	<div id="quizScreen" class="quizScreen" v-if="value2">
+		<h1 class="title is-1">CyberRange Quiz</h1>
 		<hr/>
-		<div class="panel my-3" id="p1"></div>
 
-    <!--<div v-if="questionIndex < questions.length">-->
-      <label> {{ question }}</label>
-      <div v-for="answer of questions.answers" :key="answer">
-      <input type="radio" name="answer" v-model="chosenAnswer" :value="answer"/>
-        {{ answer }}
+    <div v-if="questionIndex < questions.length">
+      <label class="subltitle"> {{ question.question }}</label>
+      <div v-for="choice in questions.choices" :value="choice">
+        <button class="button is-light" :key="choice"> {{ choice }}</button>
       </div>
       <div>
-        <button type="button" id="answer-btn" @click="getNextQuestion">next</button>
+        <button class="button is-primary" type="button" id="answer-btn" @click="getNextQuestion">next</button>
       </div>
-      <div class="text-center">
+      <div class="progress is-primary">
         {{ currentQuestion }}
       </div>
     </div>
-    <!--</div>-->
+
+  </div>
 
     <!-- Endbildschirm -->
-	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-if="value3">
+	<div id="endScreen" class="endScreen" v-if="value3">
 		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
     <div class="text-center">{{ finalScore }}</div>
     <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
@@ -45,28 +52,43 @@
 
 
 <script>
-  import questions from "./data/questions.js";
+  //import questions from "./data/questions.js";
   import input from "./data/input.js"
   
+  const questions = [
+    {
+      question: "What is icecream?",
+      choices: ["something to eat", "something to wash", "something to play"],
+      correctAnswer: "something to eat",
+    },
+    {
+      question: "What the square root of 4?",
+      choices: ["3", "2", "1", "0.67777", "7"],
+      correctAnswer: "2"
+    },
+    {
+      question: "How do you eat your burger?",
+      choices: ["with my hands", "with cutlery"],
+      correctAnswer: "with my hands",
+    }
+  ]
+
   export default {
     name: "App",
-    components: {
-      
-    },
+    components: {},
 
     data() {
       return {
         username: "Username",
         questions,
         questionIndex: 0,
-        question: questions.questions[0],
-        chosenAnswer: "",
+        question: questions[0],
+        answer: "",
         score: 0,
         review: "Wenn du noch was los werden willst, ist hier die Möglichkeit!",
         value1: true,
         value2: false,
         value3: false,
-
       };
     },
     methods: {
@@ -83,12 +105,12 @@
       },
 
       getNextQuestion() {
-          const {chosenAnswer, question, questions, questionIndex} = this;
-          if(question.answer == true) {
+          const {answer, question, questions, questionIndex} = this;
+          if(answer === question.correctAnswer) {
             score++;
           }
 
-          input.push[{questionIndex: this.chosenAnswer}]
+          input.answeredQuestions.push[{questionIndex: this.chosenAnswer}]
 
           if (questionIndex < questions.length) {
             this.questionIndex++;
@@ -120,25 +142,5 @@
 </script>
 
 <style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-
-  body {
-    background-color: rgb(77, 200, 231);
-    height:100vh;
-    color: aliceblue;
-  }
-
-  #answer-btn{
-    border-color: #c23c3e;
-    background-color: #dcd6e9;
-  }
-
-  #answer-btn:hover, #answer-btn:focus{
-    box-shadow: inset 0 0 0 2em #c23c3e;
-}
+  
 </style>
