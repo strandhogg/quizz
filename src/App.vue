@@ -28,7 +28,7 @@
 
     <div v-if="questionIndex < questions.length">
       <label class="subltitle">{{ question.question }}</label>
-      <div v-for="choice in questions.choices" :value="choice">
+      <div v-for="choice in question.choices" :value="choice">
         <button class="button is-light" :key="choice">{{ choice }}</button>
       </div>
       <div>
