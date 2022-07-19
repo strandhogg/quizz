@@ -3,6 +3,7 @@
     <!-- Startbildschirm -->
     <div id="startScreen" class="startScreen" v-if="value1">
 		<h1 class="text title is-1" >Welcome to Cyber Range Quiz!</h1> 
+    <img src="src/assets/rocket2.svg" height = "75" width ="150" alt="Picture not found"/>
 		<div class="my-3">
 			<div class="input-group my-3">
 				<span class="input-group-text" id="basic-addon1" ></span>
@@ -43,6 +44,7 @@
 
     <!-- Endbildschirm -->
 	<div id="endScreen" class="endScreen" v-if="value3">
+  <img src="src/assets/rocket2.svg" height = "75" width ="150" alt="Picture not found"/>
 		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
     <div class="text-center">{{ finalScore }}</div>
     <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
@@ -110,13 +112,14 @@
             score++;
           }
 
-          input.answeredQuestions.push[{questionIndex: this.chosenAnswer}]
+          //input.answeredQuestions.push[{questionIndex: this.chosenAnswer}]
 
-          if (questionIndex < questions.length) {
+          if (questionIndex < questions.length-1) {
             this.questionIndex++;
             this.question = { ...questions[this.questionIndex]};
           } else {
             this.endGame()
+            console.log("Finshed")
           }
       },
 
