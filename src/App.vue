@@ -14,7 +14,7 @@
         required type="text" 
         placeholder="Gib hier deinen Username ein!" 
         @click="getUsername"/>
-        {{ Username }}
+        {{ username }}
 			</div>
 			<button @click="startGame()" class="button is-primary is-rounded" type="submit" id="start-btn">Click here to start the Quiz!</button>
 		</div>
@@ -27,25 +27,28 @@
 		<hr/>
 
     <div v-if="questionIndex < questions.length">
-      <label class="subltitle"> {{ question.question }}</label>
+      <label class="subltitle">{{ question.question }}</label>
       <div v-for="choice in questions.choices" :value="choice">
-        <button class="button is-light" :key="choice"> {{ choice }}</button>
+        <button class="button is-light" :key="choice">{{ choice }}</button>
       </div>
       <div>
         <button class="button is-primary" type="button" id="answer-btn" @click="getNextQuestion">next</button>
       </div>
-      <div class="progress is-primary">
+
+      <div>
         {{ currentQuestion }}
       </div>
+      <progress class="progress is-primary" :value="percent" max="100">{{ percent }}</progress>
     </div>
 
   </div>
 
     <!-- Endbildschirm -->
 	<div id="endScreen" class="endScreen" v-if="value3">
-		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
-    <div class="text-center">{{ finalScore }}</div>
-    <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
+		<h1 class="text title">Congratulation, you finished the Quiz! :)</h1>
+    <div class="subtitle">{{ finalScore }}</div>
+    <textarea class="textarea is-primary" id="review"> {{ review }}</textarea>
+    <button class="button is-primary" @click="submit">submit</button>
 	</div>
   </form>
 </template>
@@ -79,13 +82,13 @@
 
     data() {
       return {
-        username: "Username",
+        username: "",
         questions,
         questionIndex: 0,
         question: questions[0],
         answer: "",
         score: 0,
-        review: "Wenn du noch was los werden willst, ist hier die Möglichkeit!",
+        review: "",
         value1: true,
         value2: false,
         value3: false,
@@ -109,7 +112,7 @@
           if(answer === question.correctAnswer) {
             score++;
           }
-
+          console.log(this.percent)
           //input.answeredQuestions.push[{questionIndex: this.chosenAnswer}]
 
           if (questionIndex < questions.length-1) {
@@ -126,15 +129,21 @@
       },
       getUsername(){
 
+      },
+      submit(){
+        input.push[{review: this.review}]
       }
     },
     computed: {
       //displaying current question x/n
       currentQuestion() {
-        return 'Question ' + this.questionIndex + ' of ' + this.questions.length
+        return 'Question ' + (this.questionIndex + 1) + ' of ' + this.questions.length
       },
       finalScore() {
         return 'You scored ' + this.score + ' out of ' + this.questions.length + ' points!'
+      },
+      percent() {
+        return ((this.questionIndex + 1) / this.questions.length) * 100
       }
     }
   };
