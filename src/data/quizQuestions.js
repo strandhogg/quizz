@@ -1,10 +1,7 @@
-const questionsArray = 
-
-{
-    "quizQuestions": [
+    questions = [
         {
             "question": "What is icecream?",
-            "answers": [
+            "choices": [
                 { "something to eat": true },
                 { "something to wash": false },
                 { "something to play": false }
@@ -12,7 +9,7 @@ const questionsArray =
         },
         {
             "question": "What the square root of 4?",
-            "answers": [
+            "choices": [
                 { "2": false },
                 { "3": true },
                 { "1": false },
@@ -22,12 +19,11 @@ const questionsArray =
         },
         {
             "question": "How do you eat your burger?",
-            "answers": [
+            "choices": [
                 { "with my hands": true },
                 { "with cutlery": true }
             ]
         }
     ]
-}
 
-export default questionsArray;
+export default questions;
