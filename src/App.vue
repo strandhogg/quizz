@@ -3,13 +3,12 @@
     <!-- Startbildschirm -->
     <div id="startScreen" class="startScreen" v-if="value1">
 		<h1 class="text title is-1" >Welcome to Cyber Range Quiz!</h1> 
-    <img src="src/assets/rocket2.svg" alt="CyberRangeLogo" height="400" width="400">
+    <img src="src/assets/rocket2.svg" alt="CyberRangeLogo" height="350" width="350">
 		<div class="my-3">
 			<div class="input-group my-3">
 				<span class="input-group-text" id="basic-addon1" ></span>
-				<input aria-label="Username" 
-        aria-describedby="basic-addon1" 
-        class="form-control input is-primary is-medium is-rounded" 
+				<input 
+        class="form-control input is-primary is-medium is-rounded block" 
         id="username" 
         name="username" 
         required type="text" 
@@ -24,22 +23,25 @@
 
   <!-- Quiz Änderung-->
 	<div id="quizScreen" class="quizScreen" v-if="value2">
-		<h1 class="title is-1">CyberRange Quiz</h1>
+		<h1 class="title is-1 block">CyberRange Quiz</h1>
 		<hr/>
 
     <div v-if="questionIndex < questions.length">
-      <label class="subltitle">{{ question.question }}</label>
-      <div v-for="choice in question.choices" :value="choice">
-        <button class="button is-light" :key="choice">{{ choice }}</button>
+      <label class="block title">{{ question.question }}</label>
+      <div v-for="(choice, key) in question.choices" :value="key" class="block">
+        <button class="button is-light"
+          type="button"
+         :key="key"
+        >{{ key }}</button>
       </div>
       <div>
-        <button class="button is-primary" type="button" id="answer-btn" @click="getNextQuestion">next</button>
+        <button class="button is-primary block" type="button" id="answer-btn" @click="getNextQuestion">next</button>
       </div>
 
-      <div>
+      <div class="block">
         {{ currentQuestion }}
+        <progress class="progress is-primary" :value="percent" max="100">{{ percent }}</progress>
       </div>
-      <progress class="progress is-primary" :value="percent" max="100">{{ percent }}</progress>
     </div>
 
   </div>
@@ -62,7 +64,7 @@
   const questions = [
     {
       question: "What is icecream?",
-      choices: ["something to eat", "something to wash", "something to play"],
+      choices: [{"something to eat": true}, {"something to wash": false}, {"something to play": false}],
       correctAnswer: "something to eat",
     },
     {
@@ -110,7 +112,7 @@
 
       getNextQuestion() {
           const {answer, question, questions, questionIndex} = this;
-          if(answer === question.correctAnswer) {
+          if(questions.choices[0].key == true) {
             score++;
           }
           console.log(this.percent)
