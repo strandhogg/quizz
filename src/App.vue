@@ -103,6 +103,7 @@
         this.value1 = false
         this.value2 = true
         console.log("Started")
+        console.log(question.choices[0])
 
       },
 
