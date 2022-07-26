@@ -1,0 +1,15 @@
+Attention;A1;The scenario and context of the training were interesting.
+Attention;A2;I wanted to successfully finish the training and complete all the tasks.
+Relevance;RV1;To me, the scenario and context seemed to be realistic.
+Relevance;RV2;I my opinion, the tasks I performed represent skills that are required in real incident repsonse work.
+Confidence;C1;During the training, I felt I was in control over my actions.
+Confidence;C2;During the training, I had a sense that I made good progress.
+Satisfaction;S1;During the training, I experienced excitement.
+Satisfaction;S2;I was satisfied with my performance during the training.
+Perceived;P1;In my opinion, I have reached the learning objectives of the cyber range training.
+Perceived;P2;In my opinion, I have gained security skills and knowledge that might be helpful in the future.
+Perceived;P3;The duration of the training was appropriate for what I learned.
+Task-Load-Index;TLX1;I was overwhelmed by the complexity of the tasks
+Task-Load-Index;TLX2;During large parts of the the training, I felt stressed or frustrated.
+Learning Material;L1;I felt I needed more information to succeed in the training.
+Leanring Material;L2;I found the information and instructions provided unclear.

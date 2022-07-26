@@ -61,6 +61,8 @@
 <script>
   //import questions from "./data/quizQuestions.js";
   import input from "./data/input.js"
+  
+
  
   const questions = [
     {
@@ -96,9 +98,12 @@
         value1: true,
         value2: false,
         value3: false,
+      
       };
     },
     methods: {
+
+      
 
       startGame(){
         this.value1 = false

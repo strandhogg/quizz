@@ -1,0 +1,232 @@
+[
+ {
+  "Category": "Pre-konwledge assessment",
+  "Subcategory": "n/a",
+  "No": "P1",
+  "Question": "Have you worked with a terminal/shell before?",
+  "Correctanswer": "n/a",
+  "Falseanswer1": "n/a",
+  "Falseanswer2": "n/a",
+  "Falseanswer3": "n/a"
+ },
+ {
+  "Category": "Pre-konwledge assessment",
+  "Subcategory": "n/a",
+  "No": "P2",
+  "Question": "Have you worked with linux before?",
+  "Correctanswer": "n/a",
+  "Falseanswer1": "n/a",
+  "Falseanswer2": "n/a",
+  "Falseanswer3": "n/a"
+ },
+ {
+  "Category": "Pre-konwledge assessment",
+  "Subcategory": "n/a",
+  "No": "P3",
+  "Question": "Have you worked with a SIEM system before?",
+  "Correctanswer": "n/a",
+  "Falseanswer1": "n/a",
+  "Falseanswer2": "n/a",
+  "Falseanswer3": "n/a"
+ },
+ {
+  "Category": "Pre-konwledge assessment",
+  "Subcategory": "n/a",
+  "No": "P4",
+  "Question": "Have you heard about IR before?",
+  "Correctanswer": "n/a",
+  "Falseanswer1": "n/a",
+  "Falseanswer2": "n/a",
+  "Falseanswer3": "n/a"
+ },
+ {
+  "Category": "Pre-konwledge assessment",
+  "Subcategory": "n/a",
+  "No": "P5",
+  "Question": "Have you attended a CR/CTF before?",
+  "Correctanswer": "n/a",
+  "Falseanswer1": "n/a",
+  "Falseanswer2": "n/a",
+  "Falseanswer3": "n/a"
+ },
+ {
+  "Category": "Pre-konwledge assessment",
+  "Subcategory": "n/a",
+  "No": "Q1",
+  "Question": "What is an IP address?",
+  "Correctanswer": "The network address of a device",
+  "Falseanswer1": "The hardware address of a device",
+  "Falseanswer2": "The domain name of a service",
+  "Falseanswer3": "The address for telephonic transmission of scanned printed material"
+ },
+ {
+  "Category": "Pre-konwledge assessment",
+  "Subcategory": "n/a",
+  "No": "Q2",
+  "Question": "What is a MAC address?",
+  "Correctanswer": "The hardware address of a device",
+  "Falseanswer1": "The network address of a device",
+  "Falseanswer2": "The domain name of a service",
+  "Falseanswer3": "The unique address of subscriber identity modules (SIM)"
+ },
+ {
+  "Category": "Pre-konwledge assessment",
+  "Subcategory": "n/a",
+  "No": "Q3",
+  "Question": "What is the TCP protocol?",
+  "Correctanswer": "A network-layer protocol, defining how data is exchanged between network components on the network layer",
+  "Falseanswer1": "A cryptographic protocol designed to provide communications security over a computer network",
+  "Falseanswer2": "An internet-layer protocol for exchange of information and error messages when communicating with another IP address",
+  "Falseanswer3": "An application-layer Internet standard protocol used by e-mail clients"
+ },
+ {
+  "Category": "Non-security knowledge",
+  "Subcategory": "General CS knowledge",
+  "No": "Q4",
+  "Question": "What is the ARP protocol?",
+  "Correctanswer": "A communication protocol mapping IP addresses to MAC addresses",
+  "Falseanswer1": "A network-layer protocol, defining how data is exchanged between network components on the network layer",
+  "Falseanswer2": "A cryptographic protocol designed to provide communications security over a computer network",
+  "Falseanswer3": "A network protocol for operating network services securely over an unsecured network"
+ },
+ {
+  "Category": "Non-security knowledge",
+  "Subcategory": "ICS-related knoweldge",
+  "No": "Q5",
+  "Question": "What is a PLC (SPS)?",
+  "Correctanswer": "An industrial computer control system, e.g. for controlling sensors",
+  "Falseanswer1": "The processing unit of a computer",
+  "Falseanswer2": "A multi-purpose computer operated by an end user",
+  "Falseanswer3": "The core of a computer's operating system"
+ },
+ {
+  "Category": "Non-security knowledge",
+  "Subcategory": "ICS-related knoweldge",
+  "No": "Q6",
+  "Question": "What is an ICS?",
+  "Correctanswer": "A virtually connected physical system",
+  "Falseanswer1": "A user interface for interaction with physical maschines",
+  "Falseanswer2": "An industrial sensor",
+  "Falseanswer3": "The digital representation of a physical asset"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "SIEM-related knoweldge",
+  "No": "Q7",
+  "Question": "What is the purpose of a SIEM system?",
+  "Correctanswer": "Correlarting secruity-relevant data from across the entire network to detect incidents",
+  "Falseanswer1": "Reporting the status of the current tasks of the cybersecurity team",
+  "Falseanswer2": "Controlling incoming and outgoing network traffic based on predetermined security rules",
+  "Falseanswer3": "Performing integrated management of main business processes"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "SIEM-related knoweldge",
+  "No": "Q8",
+  "Question": "What is a SIEM event?",
+  "Correctanswer": "A seucrity-related log, transmitted to a SIEM system",
+  "Falseanswer1": "An attack identified by the SIEM system",
+  "Falseanswer2": "A conference for SIEM experts",
+  "Falseanswer3": "A potentially manipulated file, identified by the SIEM system"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "SIEM-related knoweldge",
+  "No": "Q9",
+  "Question": "What is the difference between a SIEM system and an IDS?",
+  "Correctanswer": "A SIEM correlates security-related  log data from various sources an IDS monitors a network for suspicious activities",
+  "Falseanswer1": "A SIEM is the technical component of an IDS",
+  "Falseanswer2": "There is no difference",
+  "Falseanswer3": "A SIEM operates on a network, an IDS on an application layer"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "Attack-related knowledge",
+  "No": "Q10",
+  "Question": "What is a Man In The Middle (MiTM) Attack?",
+  "Correctanswer": "Intercepting the network traffic between to parties",
+  "Falseanswer1": "Exhausting the system resources of a server",
+  "Falseanswer2": "Phising for passwords via malicous email",
+  "Falseanswer3": "A malware attack targeting middleware"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "Attack-related knowledge",
+  "No": "Q11",
+  "Question": "Effect of a MitM Attack on an industrial system?",
+  "Correctanswer": "Inability of the ICS to read the sensor values, resulting in an interruption of the physical process",
+  "Falseanswer1": "Escalation of priviledge on an HMI",
+  "Falseanswer2": "Replication of malware code on other devices in the network",
+  "Falseanswer3": "Temporary inaccessibility of the ICS because it is flooded with requests"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "Attack-related knowledge",
+  "No": "Q12",
+  "Question": "How does ARP spoofing work?",
+  "Correctanswer": "Linking the attackerÕs MAC address with the IP of the victim",
+  "Falseanswer1": "Poisoning the DNS cache of a client",
+  "Falseanswer2": "Replacing the IP address of a network packet",
+  "Falseanswer3": "Changing a factory-assigned IP address of a network interface"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "Incident Response-related knowledge",
+  "No": "Q13",
+  "Question": "What is Incident Response mainly concerned with?",
+  "Correctanswer": "Reacting to security incidents in a coherent and repeatable manner",
+  "Falseanswer1": "Secure SW development",
+  "Falseanswer2": "Implementing security controls such as anti malware software or access control",
+  "Falseanswer3": "Managment of security risks and policies"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "Incident Response-related knowledge",
+  "No": "Q14",
+  "Question": "What is the first step of incident response?",
+  "Correctanswer": "Preparation",
+  "Falseanswer1": "Investigation",
+  "Falseanswer2": "Reponse",
+  "Falseanswer3": "Analysis"
+ },
+ {
+  "Category": "Security-related knowledge",
+  "Subcategory": "Incident Response-related knowledge",
+  "No": "Q15",
+  "Question": "What is an incident response playbook?",
+  "Correctanswer": "A list of actions how to react to a specific kind of incident",
+  "Falseanswer1": "A software for incident management",
+  "Falseanswer2": "A standard for incident categorization",
+  "Falseanswer3": "A database for cyber threat intelligence"
+ },
+ {
+  "Category": "Security-related skills",
+  "Subcategory": "n/a",
+  "No": "Q16",
+  "Question": "How can you identify the attacking host during an ARP-based MiTM Attack?",
+  "Correctanswer": "Identifying which MAC address is falsely assigned to another network host",
+  "Falseanswer1": "Identifying the network host which sends an unusual high amount of requests",
+  "Falseanswer2": "Identifying the network host openining a VPN connection",
+  "Falseanswer3": "Identifying who modified the file  /etc/shadow"
+ },
+ {
+  "Category": "Security-related skills",
+  "Subcategory": "n/a",
+  "No": "Q17",
+  "Question": "How can you make an arp cache static",
+  "Correctanswer": "arp -s <IP> <MAC>",
+  "Falseanswer1": "arp -a  <MAC1> <MAC2>",
+  "Falseanswer2": "vi /etc/sysconfig/network",
+  "Falseanswer3": "more /etc/hosts --static"
+ },
+ {
+  "Category": "Security-related skills",
+  "Subcategory": "n/a",
+  "No": "Q18",
+  "Question": "How can you take down the interface of a network device?",
+  "Correctanswer": "ip link set dev <INTERFACE> down",
+  "Falseanswer1": "ifconfig <INTERFACE>",
+  "Falseanswer2": "service network stop",
+  "Falseanswer3": "ip route list <INTERFACE>"
+ }
+]
