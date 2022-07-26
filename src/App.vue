@@ -8,15 +8,14 @@
 			<div class="input-group my-3">
 				<span class="input-group-text" id="basic-addon1" ></span>
 				<input 
+        @keyup.enter="startGame(), getUsername()"
+        v-model="username"
         class="form-control input is-primary is-medium is-rounded block" 
-        id="username" 
-        name="username" 
         required type="text" 
-        placeholder="Gib hier deinen Username ein!" 
-        @click="getUsername"/>
+        placeholder="Gib hier deinen Username ein!"/>
         {{ username }}
-			</div>
-			<button @click="startGame()" class="button is-primary is-rounded" type="submit" id="start-btn">Click here to start the Quiz!</button>
+      </div>
+			<button @click="startGame(), getUsername()" class="button is-primary is-rounded" type="submit" id="start-btn">Click here to start the Quiz!</button>
 		</div>
 		
 	</div>
@@ -28,14 +27,12 @@
 
     <div v-if="questionIndex < questions.length">
       <label class="block title">{{ question.question }}</label>
-      <div v-for="(choice, key) in question.choices" :value="key" class="block">
-        <button class="button is-light"
+      <div v-for="choice in question.choices" class="block">
+        <button 
+          class="button is-light"
           type="button"
-         :key="key"
-        >{{ key }}</button>
-      </div>
-      <div>
-        <button class="button is-primary block" type="button" id="answer-btn" @click="getNextQuestion">next</button>
+          @click="getNextQuestion()"
+        >{{ choice }}</button>
       </div>
 
       <div class="block">
@@ -64,7 +61,7 @@
   const questions = [
     {
       question: "What is icecream?",
-      choices: [{"something to eat": true}, {"something to wash": false}, {"something to play": false}],
+      choices: ["something to eat", "something to wash", "something to play"],
       correctAnswer: "something to eat",
     },
     {
@@ -103,21 +100,20 @@
         this.value1 = false
         this.value2 = true
         console.log("Started")
-        console.log(question.choices[0])
-
       },
 
       getUsername(){
+        console.log(username)
         input.push[{user: this.username}]
       },
 
       getNextQuestion() {
           const {answer, question, questions, questionIndex} = this;
-          if(questions.choices[0].key == true) {
+          if(answer === correctAnswer) {
             score++;
           }
           console.log(this.percent)
-          //input.answeredQuestions.push[{questionIndex: this.chosenAnswer}]
+          input.push[{questionIndex: this.chosenAnswer}]
 
           if (questionIndex < questions.length-1) {
             this.questionIndex++;
@@ -131,9 +127,7 @@
         this.value2 = false
         this.value3 = true
       },
-      getUsername(){
 
-      },
       submit(){
         input.push[{review: this.review}]
       }
