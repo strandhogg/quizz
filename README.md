@@ -27,3 +27,11 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Other required commands
+
+```sh
+npm install csvtojson --save
+npm install json2csv --save
+```
+
