@@ -138,9 +138,7 @@
         this.value2 = false
         this.value3 = true
       },
-      getUsername(){
-
-      },
+      
       submit(){
         input.push[{review: this.review}]
       }
