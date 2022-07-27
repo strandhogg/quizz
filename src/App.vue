@@ -27,12 +27,13 @@
 
     <div v-if="questionIndex < questions.length">
       <label class="block title">{{ question.question }}</label>
-      <div v-for="choice in question.choices" class="block">
+      <div v-for="(value, key) in question.choices" class="block">
         <button 
           class="button is-light"
           type="button"
+          :value="value"
           @click="getNextQuestion()"
-        >{{ choice }}</button>
+        >{{ key }}</button>
       </div>
 
       <div class="block">
@@ -48,34 +49,16 @@
 		<h1 class="text title">Congratulation, you finished the Quiz! :)</h1>
     <div class="subtitle">{{ finalScore }}</div>
     <textarea class="textarea is-primary" id="review"> {{ review }}</textarea>
-    <button class="button is-primary" @click="submit">submit</button>
+    <button class="button is-primary" @click="submit()">submit</button>
 	</div>
   </form>
 </template>
 
 
 <script>
-  //import questions from "./data/quizQuestions.js";
+  import questions from "./data/quizQuestions.js";
   import input from "./data/input.js"
  
-  const questions = [
-    {
-      question: "What is icecream?",
-      choices: ["something to eat", "something to wash", "something to play"],
-      correctAnswer: "something to eat",
-    },
-    {
-      question: "What the square root of 4?",
-      choices: ["3", "2", "1", "0.67777", "7"],
-      correctAnswer: "2"
-    },
-    {
-      question: "How do you eat your burger?",
-      choices: ["with my hands", "with cutlery"],
-      correctAnswer: "with my hands",
-    }
-  ]
-
   export default {
     name: "App",
     components: {},
@@ -103,13 +86,12 @@
       },
 
       getUsername(){
-        console.log(username)
         input.push[{user: this.username}]
       },
 
       getNextQuestion() {
           const {answer, question, questions, questionIndex} = this;
-          if(answer === correctAnswer) {
+          if(answer === true) {
             score++;
           }
           console.log(this.percent)
@@ -147,7 +129,3 @@
   };
 
 </script>
-
-<style>
-
-</style>
