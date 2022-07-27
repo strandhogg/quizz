@@ -1,93 +1,103 @@
 <template>
   <form>
     <!-- Startbildschirm -->
-    <div id="startScreen" class="startScreen text-white text-center py-5 px-5" v-show="true">
-		<h1 class="text">Welcome to Cyber Range Quiz!</h1> 
+    <div id="startScreen" class="startScreen" v-if="value1">
+		<h1 class="text title is-1" >Welcome to Cyber Range Quiz!</h1> 
+    <img src="src/assets/rocket2.svg" alt="CyberRangeLogo" height="350" width="350">
 		<div class="my-3">
 			<div class="input-group my-3">
-				<span class="input-group-text" id="basic-addon1" @click="getUsername">{{ Username }}</span>
-				<input aria-label="Username" aria-describedby="basic-addon1" class="form-control" id="username" name="username" required type="text" placeholder="Gib hier deinen Username ein!" />
-			</div>
-			<button @click="startGame()" class="btn btn-light my-3 w-100 raise" id="start-btn ">Click here to start the Quiz!</button>
+				<span class="input-group-text" id="basic-addon1" ></span>
+				<input 
+        @keyup.enter="startGame(), getUsername()"
+        v-model="username"
+        class="form-control input is-primary is-medium is-rounded block" 
+        required type="text" 
+        placeholder="Gib hier deinen Username ein!"/>
+        {{ username }}
+      </div>
+			<button @click="startGame(), getUsername()" class="button is-primary is-rounded" type="submit" id="start-btn">Click here to start the Quiz!</button>
 		</div>
 		
 	</div>
 
-  <!-- Quiz -->
-	<div id="quizScreen" class="text-white text-center py-5 px-5" v-show="false">
-		<h1>CyberRange Quiz</h1>
+  <!-- Quiz Änderung-->
+	<div id="quizScreen" class="quizScreen" v-if="value2">
+		<h1 class="title is-1 block">CyberRange Quiz</h1>
 		<hr/>
-		<div class="panel my-3" id="p1">
-		</div>
-	</div>
-
-  <!-- Endbildschirm -->
-	<div id="endScreen" class="endScreen text-white text-center py-5 px-5" v-show="false">
-		<h1 class="text">Congratulation, you finished the Quiz! :)</h1>
-    <div class="text-center">{{ finalScore }}</div>
-    <textarea id="review" rows="4" cols="50"> {{ review }}</textarea>
-	</div>
-
 
     <div v-if="questionIndex < questions.length">
-      <label> {{ questions.question }}</label>
-      <div v-for="answer of questions.answers" :key="answer">
-      <input type="radio" name="answer" v-model="chosenAnswer" :value="answer"/>
-        {{ answer }}
+      <label class="block title">{{ question.question }}</label>
+      <div v-for="(value, key) in question.choices" class="block">
+        <button 
+          class="button is-light"
+          type="button"
+          :value="value"
+          @click="getNextQuestion()"
+        >{{ key }}</button>
       </div>
-      <div>
-        <button type="button" id="answer-btn" @click="getNextQuestion">next</button>
-      </div>
-      <div class="text-center">
+
+      <div class="block">
         {{ currentQuestion }}
+        <progress class="progress is-primary" :value="percent" max="100">{{ percent }}</progress>
       </div>
     </div>
+
+  </div>
+
+    <!-- Endbildschirm -->
+	<div id="endScreen" class="endScreen" v-if="value3">
+		<h1 class="text title">Congratulation, you finished the Quiz! :)</h1>
+    <div class="subtitle">{{ finalScore }}</div>
+    <textarea class="textarea is-primary" id="review"> {{ review }}</textarea>
+    <button class="button is-primary" @click="submit()">submit</button>
+	</div>
   </form>
 </template>
 
 
 <script>
-  import questions from "./data/questions.json";
-  
+  import questions from "./data/quizQuestions.js";
+  import input from "./data/input.js"
+ 
   export default {
     name: "App",
-    components: {
-      
-    },
+    components: {},
 
     data() {
       return {
-        username: "Username",
+        username: "",
         questions,
         questionIndex: 0,
         question: questions[0],
-        chosenAnswer: "",
+        answer: "",
         score: 0,
-        review: "Wenn du noch was los werden willst, ist hier die Möglichkeit!"
+        review: "",
+        value1: true,
+        value2: false,
+        value3: false,
       };
     },
     methods: {
 
       startGame(){
-        //lieber mit v-if lösen
-        document.getElementById("startScreen").vShow = 'false';
-        document.getElementById("quizScreen").vShow = 'true';
+        this.value1 = false
+        this.value2 = true
+        console.log("Started")
       },
 
       getUsername(){
-        JSON.stringify({name: username})
+        input.push[{user: this.username}]
       },
 
       getNextQuestion() {
-          const {chosenAnswer, question, questions, questionIndex} = this;
-          if(question.answer == true) {
+          const {answer, question, questions, questionIndex} = this;
+          if(answer === true) {
             score++;
-            JSON.stringify({questionIndex: chosenAnswer})
-          } else {
-            JSON.stringify({questionIndex: chosenAnswer})
           }
+          console.log(this.percent)
+          input.push[{questionIndex: this.chosenAnswer}]
 
-          if (questionIndex < questions.length) {
+          if (questionIndex < questions.length-1) {
             this.questionIndex++;
             this.question = { ...questions[this.questionIndex]};
           } else {
@@ -96,46 +106,31 @@
       },
 
       endGame(){
-        document.getElementById("quizScreen").vShow = 'false';
-        document.getElementById("endScreen").vShow = 'true';
+        this.value2 = false
+        this.value3 = true
       },
+<<<<<<< HEAD
       getReview(){
         JSON.stringify({review: review})
+=======
+
+      submit(){
+        input.push[{review: this.review}]
+>>>>>>> matthias
       }
     },
     computed: {
       //displaying current question x/n
       currentQuestion() {
-        return this.questionIndex + '/' + this.questions.length
+        return 'Question ' + (this.questionIndex + 1) + ' of ' + this.questions.length
       },
       finalScore() {
         return 'You scored ' + this.score + ' out of ' + this.questions.length + ' points!'
+      },
+      percent() {
+        return ((this.questionIndex + 1) / this.questions.length) * 100
       }
     }
   };
 
 </script>
-
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-
-  body {
-    background-color: rgb(130, 212, 235);
-    height:100vh;
-    color: aliceblue;
-  }
-
-  #answer-btn{
-    border-color: #c23c3e;
-    background-color: #2e0d6b;
-  }
-
-  #answer-btn:hover, #answer-btn:focus{
-    box-shadow: inset 0 0 0 2em #c23c3e;
-}
-</style>
