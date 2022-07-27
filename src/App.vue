@@ -2,8 +2,7 @@
   <form>
     <!-- Startbildschirm -->
     <div id="startScreen" class="startScreen" v-if="value1">
-		<h1 class="text title is-1" >Welcome to Cyber Range Quiz!</h1> 
-    <img src="src/assets/rocket2.svg" height = "75" width ="150" alt="Picture not found"/>
+		<h1 class="text title is-1" >Welcome to Cyber Range Quiz!</h1>
 		<div class="my-3">
 			<div class="input-group my-3">
 				<span class="input-group-text" id="basic-addon1" ></span>
@@ -46,7 +45,6 @@
 
     <!-- Endbildschirm -->
 	<div id="endScreen" class="endScreen" v-if="value3">
-    <img src="src/assets/rocket2.svg" height = "75" width ="150" alt="Picture not found"/>
 		<h1 class="text title">Congratulation, you finished the Quiz! :)</h1>
     <div class="subtitle">{{ finalScore }}</div>
     <textarea class="textarea is-primary" id="review"> {{ review }}</textarea>
@@ -59,9 +57,7 @@
 <script>
   import questions from "./data/quizQuestions.js";
   import input from "./data/input.js"
-  
 
- 
   export default {
     name: "App",
     components: {},
@@ -78,12 +74,9 @@
         value1: true,
         value2: false,
         value3: false,
-      
       };
     },
     methods: {
-
-      
 
       startGame(){
         this.value1 = false
@@ -108,7 +101,6 @@
             this.question = { ...questions[this.questionIndex]};
           } else {
             this.endGame()
-            console.log("Finshed")
           }
       },
 
@@ -116,18 +108,9 @@
         this.value2 = false
         this.value3 = true
       },
-<<<<<<< HEAD
-<<<<<<< HEAD
-      getReview(){
-        JSON.stringify({review: review})
-=======
 
-=======
-      
->>>>>>> d869f6232027810e78f7fa677d041a7808b58caa
       submit(){
         input.push[{review: this.review}]
->>>>>>> matthias
       }
     },
     computed: {
