@@ -11,10 +11,17 @@
         v-model="username"
         class="form-control input is-primary is-medium is-rounded block" 
         required type="text" 
-        placeholder="Gib hier deinen Username ein!"/>
+        placeholder="Gib hier deinen Username ein!"
+        style="font-family: Consolas"/>
         {{ username }}
       </div>
-			<button @click="startGame(), getUsername()" class="button is-primary is-rounded" type="submit" id="start-btn">Click here to start the Quiz!</button>
+			<button 
+        @click="startGame(), getUsername()" 
+        class="button is-primary is-rounded" 
+        type="submit" 
+        id="start-btn"
+        style="font-family: Consolas">
+        Click here to start the Quiz!</button>
 		</div>
 		
 	</div>
@@ -30,8 +37,9 @@
         <button 
           class="button is-light"
           type="button"
-          :value="value"
+          :value="value" 
           @click="getNextQuestion()"
+          style="font-family: Consolas"
         >{{ key }}</button>
       </div>
 
@@ -47,8 +55,12 @@
 	<div id="endScreen" class="endScreen" v-if="value3">
 		<h1 class="text title">Congratulation, you finished the Quiz! :)</h1>
     <div class="subtitle">{{ finalScore }}</div>
-    <textarea class="textarea is-primary" id="review"> {{ review }}</textarea>
-    <button class="button is-primary" @click="submit()">submit</button>
+    <textarea 
+      class="textarea is-primary block"
+      v-model="review" 
+      id="review"
+      ></textarea>
+    <button class="button is-primary" @click="submit()" style="font-family: Consolas">submit</button>
 	</div>
   </form>
 </template>
@@ -85,16 +97,16 @@
       },
 
       getUsername(){
-        input.push[{user: this.username}]
+        //input.push({user: this.username})
       },
 
       getNextQuestion() {
           const {answer, question, questions, questionIndex} = this;
-          if(answer === true) {
+          if(answer.value === true) {
             score++;
           }
           console.log(this.percent)
-          input.push[{questionIndex: this.chosenAnswer}]
+          //input.push({questionIndex: this.chosenAnswer})
 
           if (questionIndex < questions.length-1) {
             this.questionIndex++;
@@ -110,7 +122,7 @@
       },
 
       submit(){
-        input.push[{review: this.review}]
+        input.push({review: this.review})
       }
     },
     computed: {
