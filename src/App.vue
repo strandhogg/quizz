@@ -95,9 +95,9 @@
         answer: "",
         score: 0,
         review: "",
-        value1: true,
+        value1: false,
         value2: false,
-        value3: false,
+        value3: true,
       
       };
     },
