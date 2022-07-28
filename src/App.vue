@@ -42,7 +42,7 @@
 
     <div v-if="questionIndex < questions.length">
       <label class="block title">{{ question.question }}</label>
-      <div v-for="(value, key) in question.choices" class="block">
+      <div v-for="(value, key) in question.choices" class="block" >
         <button 
           class="button is-primary is-outlined"
           type="button"
@@ -78,7 +78,7 @@
 <script>
   import questions from "./data/quizQuestions.js";
   import input from "./data/input.js"
-
+  var evalFileComplete = [];
   export default {
     name: "App",
     components: {},
@@ -95,7 +95,8 @@
         value1: true,
         value2: false,
         value3: false,
-        switch: false
+        switch: false,
+        evalFile: new Object(),
       };
     },
     methods: {
@@ -107,7 +108,9 @@
       },
 
       getUsername(){
-        input.push(username)
+        console.log(this.username);
+        console.log(JSON.stringify(this.username));
+        //input.push({user: this.username})
       },
 
       getNextQuestion() {
@@ -115,11 +118,27 @@
           if(answer.value === true) {
             score++;
           }
-          console.log(this.percent)
+          //console.log(this.percent)
           //input.push({questionIndex: this.chosenAnswer})
+          if(questionIndex === 0){
+
+          }
+          this.evalFile.name = this.username;
+          this.evalFile.question = this.questions[questionIndex].question;
+          //this.evalFile.answer = this.answer.value;
+
+         
+
+          var jsonString = JSON.stringify(this.evalFile);
+          var jsonObject = JSON.parse(jsonString);
+          console.log(jsonObject);
+          console.log(evalFileComplete);
+          evalFileComplete.push(jsonObject);
+          
 
           if (questionIndex < questions.length-1) {
             this.questionIndex++;
+
             this.question = { ...questions[this.questionIndex]};
           } else {
             this.endGame()
@@ -129,6 +148,25 @@
       endGame(){
         this.value2 = false
         this.value3 = true
+        console.log("LOG1" + evalFileComplete);
+
+        var jsonString2 = JSON.stringify(evalFileComplete);
+        console.log("LOG2" + jsonString2);
+        var jsonObject2 = JSON.parse(jsonString2);
+        console.log(jsonObject2);
+
+        var json = jsonObject2
+        var fields = Object.keys(json[0])
+        var replacer = function(key, value) { return value === null ? '' : value } 
+        var csv = json.map(function(row){
+        return fields.map(function(fieldName){
+        return JSON.stringify(row[fieldName], replacer)
+        }).join(',')
+        })
+        csv.unshift(fields.join(',')) // add header column
+        csv = csv.join('\r\n');
+        console.log("CSVLOG:");
+        console.log(csv);
       },
 
       submit(){
