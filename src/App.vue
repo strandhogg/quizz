@@ -49,7 +49,7 @@
           :value="value" 
           @click="getNextQuestion()"
           style="font-family: Consolas"
-          v-model="answer"
+          v-model="this.answer"
         >{{ key }}</radio>
       </div>
 
@@ -79,7 +79,6 @@
 
 <script>
   import questions from "./data/quizQuestions.js";
-  import input from "./data/input.js"
   var evalFileComplete = [];
   export default {
     name: "App",
@@ -112,18 +111,18 @@
       getUsername(){
         console.log(this.username);
         console.log(JSON.stringify(this.username));
-        //input.push({user: this.username})
+        
       },
 
       getNextQuestion() {
           const {answer, question, questions, questionIndex} = this;
-          questions[questionIndex].choices.forEach((key, value) => {
+          /*questions[questionIndex].choices.forEach((key, value) => {
             if(answer === key && value === true) {
               score++
             }
-          });
-          //console.log(this.percent)
-          //input.push({questionIndex: this.chosenAnswer})
+          });*/
+
+          console.log("Answer:" + this.answer);
           if(questionIndex === 0){
 
           }
@@ -145,9 +144,9 @@
         this.jsonToCsv();
       },
 
-      submit(){
-        input.push(review)
-      },
+      /*submit(){
+        
+      },*/
 
       jsonToCsv(){
         console.log("LOG1" + evalFileComplete);
@@ -181,8 +180,8 @@
 
       dataInJson(){
         this.evalFile.name = this.username;
-          this.evalFile.question = this.questions[this.questionIndex].question;
-          //this.evalFile.answer = this.answer.value;
+        this.evalFile.question = this.questions[this.questionIndex].question;
+        this.evalFile.answer = this.answer;
 
           var jsonString = JSON.stringify(this.evalFile);
           var jsonObject = JSON.parse(jsonString);
