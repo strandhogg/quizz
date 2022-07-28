@@ -123,18 +123,8 @@
           if(questionIndex === 0){
 
           }
-          this.evalFile.name = this.username;
-          this.evalFile.question = this.questions[questionIndex].question;
-          //this.evalFile.answer = this.answer.value;
-
-         
-
-          var jsonString = JSON.stringify(this.evalFile);
-          var jsonObject = JSON.parse(jsonString);
-          console.log(jsonObject);
-          console.log(evalFileComplete);
-          evalFileComplete.push(jsonObject);
           
+          this.dataInJson();
 
           if (questionIndex < questions.length-1) {
             this.questionIndex++;
@@ -148,6 +138,14 @@
       endGame(){
         this.value2 = false
         this.value3 = true
+        this.jsonToCsv();
+      },
+
+      submit(){
+        input.push({review: this.review})
+      },
+
+      jsonToCsv(){
         console.log("LOG1" + evalFileComplete);
 
         var jsonString2 = JSON.stringify(evalFileComplete);
@@ -169,8 +167,16 @@
         console.log(csv);
       },
 
-      submit(){
-        input.push({review: this.review})
+      dataInJson(){
+        this.evalFile.name = this.username;
+          this.evalFile.question = this.questions[this.questionIndex].question;
+          //this.evalFile.answer = this.answer.value;
+
+          var jsonString = JSON.stringify(this.evalFile);
+          var jsonObject = JSON.parse(jsonString);
+          console.log(jsonObject);
+          console.log(evalFileComplete);
+          evalFileComplete.push(jsonObject);
       }
     },
     computed: {
