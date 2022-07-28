@@ -3,6 +3,7 @@
     <!-- Startbildschirm -->
     <div id="startScreen" class="startScreen" v-if="value1">
 		<h1 class="text title is-1" >Welcome to Cyber Range Quiz!</h1>
+    <img src="src/assets/rocket2.svg" alt="CyberRangeLogo" height="350" width="350">
 		<div class="my-3">
 			<div class="input-group my-3">
 				<span class="input-group-text" id="basic-addon1" ></span>
