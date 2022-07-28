@@ -43,13 +43,14 @@
     <div v-if="questionIndex < questions.length">
       <label class="block title">{{ question.question }}</label>
       <div v-for="(value, key) in question.choices" class="block" >
-        <button 
+        <radio 
           class="button is-primary is-outlined"
           type="button"
           :value="value" 
           @click="getNextQuestion()"
           style="font-family: Consolas"
-        >{{ key }}</button>
+          v-model="answer"
+        >{{ key }}</radio>
       </div>
 
       <div class="block">
@@ -116,9 +117,11 @@
 
       getNextQuestion() {
           const {answer, question, questions, questionIndex} = this;
-          if(answer.value === true) {
-            score++;
-          }
+          questions[questionIndex].choices.forEach((key, value) => {
+            if(answer === key && value === true) {
+              score++
+            }
+          });
           //console.log(this.percent)
           //input.push({questionIndex: this.chosenAnswer})
           if(questionIndex === 0){
@@ -143,7 +146,7 @@
       },
 
       submit(){
-        input.push({review: this.review})
+        input.push(review)
       },
 
       jsonToCsv(){
