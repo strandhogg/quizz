@@ -39,13 +39,14 @@
   <!-- Quiz Änderung-->
 	<div id="quizScreen" class="quizScreen" v-if="value2">
 		<h1 class="title is-1 block">CyberRange Quiz</h1>
-		<hr/>
+    <img src="src/assets/rocket2.svg" alt="CyberRangeLogo" height="25" width="25">
+		<br><br>
 
     <!--loop through quizQuestions and prints out the actual one-->
-    <div v-if="questionIndex < questions.length">
-      <label class="block title">{{ question.question }}</label>
+    <div v-if="questionIndex < questions.length" class="box" id = "box_box">
+      <label class="block title">{{ question.question }}</label><br><br>
       <!--loops throuhh questions->answers->choices and creates a button for every choice of an answer-->
-      <div v-for="(value, key) in question.choices" class="block" >
+      <div v-for="(value, key) in question.choices" class="block">
         <radio 
           class="button is-primary is-outlined"
           type="button" 
@@ -75,7 +76,7 @@
       required type="text" 
       placeholder="Hier ist Platz wenn du etwas loswerden möchtest! Bitte gib uns doch ein kurzes Feedback zum Quizmodul:)"
       ></textarea>
-    <button class="button is-primary" @click="submit()" style="font-family: Consolas">submit</button>
+    <button class="button is-primary" @click="submit()" style="font-family: Consolas">Send Feedback!</button>
 	</div>
 
   <!--Danke fürs Feedback-->
@@ -156,13 +157,13 @@
       endGame(){
         this.value2 = false
         this.value3 = true
+        this.jsonToCsv();
       },
 
       submit(){
         this.reviewInJson();
         this.value3 = false
         this.value4 = true
-        this.jsonToCsv();
       },
 
       /*writes all data that is in json-format to csv-format*/
@@ -235,3 +236,10 @@
   };
 
 </script>
+
+<style scoped>
+#box_box{
+  background-color:#ffffff
+}
+</style>
+
