@@ -1,6 +1,6 @@
-const userInput =
-{
+const userInput = ["Saab"
 
-}
+
+];
 
 export default userInput
