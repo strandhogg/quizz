@@ -166,6 +166,14 @@
         csv = csv.join('\r\n');
         console.log("CSVLOG:");
         console.log(csv);
+
+        /*download csv-File, Problem: downloads every time and at the 
+        users computer*/
+        /*var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = 'userData.csv';
+        hiddenElement.click();*/
       },
 
       dataInJson(){
