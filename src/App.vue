@@ -63,6 +63,7 @@
     <!-- Endbildschirm -->
 	<div id="endScreen" class="endScreen" v-if="value3">
 		<h1 class="text title">Congratulation, you finished the Quiz! :)</h1>
+    <img src="src/assets/rocket2.svg" alt="CyberRangeLogo" height="200" width="200">
     <div class="subtitle">{{ finalScore }}</div>
     <textarea 
       class="textarea is-primary block"
