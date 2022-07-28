@@ -8,7 +8,7 @@
 			<div class="input-group my-3">
 				<span class="input-group-text" id="basic-addon1" ></span>
 				<input 
-        @keyup.enter="startGame(), getUsername()"
+        @keyup.enter="startGame, getUsername"
         v-model="username"
         class="form-control input is-primary is-medium is-rounded block" 
         required type="text" 
@@ -17,7 +17,7 @@
         {{ username }}
       </div>
 			<button 
-        @click="startGame(), getUsername()" 
+        @click="startGame, getUsername" 
         class="button is-primary is-rounded" 
         type="submit" 
         id="start-btn"
@@ -39,7 +39,7 @@
           class="button is-light"
           type="button"
           :value="value" 
-          @click="getNextQuestion()"
+          @click="getNextQuestion"
           style="font-family: Consolas"
         >{{ key }}</button>
       </div>
@@ -61,7 +61,7 @@
       v-model="review" 
       id="review"
       ></textarea>
-    <button class="button is-primary" @click="submit()" style="font-family: Consolas">submit</button>
+    <button class="button is-primary" @click="submit" style="font-family: Consolas">submit</button>
 	</div>
   </form>
 </template>
