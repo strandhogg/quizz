@@ -32,7 +32,6 @@ npm run build
 
 ```sh
 npm install csvtojson --save
-npm install json2csv --save
 npm install fs --save
 ```
 
