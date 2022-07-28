@@ -17,11 +17,19 @@
         {{ username }}
       </div>
 			<button 
-        @click="startGame(), getUsername()" 
-        class="button is-primary is-rounded" 
-        type="submit" 
+        v-if="username === null"
+        class="button is-primary is-rounded"
         id="start-btn"
-        style="font-family: Consolas">
+        style="font-family: Consolas"
+        disabled>
+        Click here to start the Quiz!</button>
+      <button
+      v-else
+      class="button is-primary is-rounded"
+      @click="startGame(), getUsername()" 
+      type="submit"
+      id="start-btn"
+      style="font-family: Consolas">
         Click here to start the Quiz!</button>
 		</div>
 		
@@ -77,7 +85,7 @@
 
     data() {
       return {
-        username: "",
+        username: null,
         questions,
         questionIndex: 0,
         question: questions[0],
