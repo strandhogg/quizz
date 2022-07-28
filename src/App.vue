@@ -107,7 +107,7 @@
       },
 
       getUsername(){
-        //input.push({user: this.username})
+        input.push(username)
       },
 
       getNextQuestion() {
