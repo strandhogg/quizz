@@ -133,6 +133,8 @@
       /*displays next question, everytime it is called*/
       getNextQuestion() {
           const {answer, question, questions, questionIndex} = this;
+          //this should check if the given answer is wright or wrong but it doesn't work
+          //we had to add a comment, otherwise nothing would work
           /*questions[questionIndex].choices.forEach((key, value) => {
             if(answer === key && value === true) {
               score++
